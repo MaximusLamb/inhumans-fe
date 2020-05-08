@@ -16,7 +16,7 @@ export default class CharacterDetail extends Component {
 
 
     render() {
-
+        
         const {name, cool_factor, power} = this.state.inhumans
 
         return (

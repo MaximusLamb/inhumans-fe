@@ -17,7 +17,7 @@ export default class CharacterDetail extends Component {
 
     render() {
         
-        const {name, cool_factor, power} = this.state.inhumans
+        const {name, cool_factor, power, is_royal} = this.state.inhumans
 
         return (
             <div>
@@ -26,6 +26,7 @@ export default class CharacterDetail extends Component {
         <h1>{name}</h1>
         <h1>{cool_factor}</h1>
         <h1>{power}</h1>
+        <h1>{is_royal}</h1>
                     </ul>
                 </section>
                 

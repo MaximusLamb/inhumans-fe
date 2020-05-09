@@ -22,7 +22,17 @@ export default class App extends Component {
             <Route
             path="/inhumans"
             exact
+            render={(routerProps) => <CharacterList {...routerProps} />}
+            />
+             <Route
+            path="/inhumans/:id"
+            exact
             render={(routerProps) => <CharacterDetail {...routerProps} />}
+            />
+             <Route
+            path="/inhumans/:id"
+            exact
+            render={(routerProps) => <AdminPage {...routerProps} />}
             />
           </Switch>
         </Router>

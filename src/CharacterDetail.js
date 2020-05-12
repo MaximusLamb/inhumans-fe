@@ -6,19 +6,19 @@ export default class CharacterDetail extends Component {
     state = {
         inhumans: {}
     }
-
     async componentDidMount() {
-
-        const data = await request.get(`https://pure-ravine-74265.herokuapp.com/inhumans/${this.props.match.params.inhumans}`)
-
-        // const data = await request.get(`https://localhost:3000/inhumans/${this.props.match.params.inhumans}`)
-
+        
+        // const data = await request.get(`https://pure-ravine-74265.herokuapp.com/inhumans/${this.props.match.params.inhumans}`)
+        
+        const data = await request.get(`http://localhost:3001/inhumans/${this.props.match.params.id}`)
+       
         this.setState({ inhumans: data.body })
     }
-
-
+    
+    
     render() {
         
+    
         const {name, cool_factor, power, is_royal} = this.state.inhumans
 
         return (
@@ -28,7 +28,7 @@ export default class CharacterDetail extends Component {
                         <h1>{name}</h1>
                         <h1>{cool_factor}</h1>
                         <h1>{power}</h1>
-                        <h1>{is_royal}</h1>
+                        <h1>{String(is_royal)}</h1>
                     </ul>
                 </section>
                 

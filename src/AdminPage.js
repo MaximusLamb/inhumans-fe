@@ -8,12 +8,13 @@ export default class AdminPage extends Component {
             name: '',
             cool_factor: 0,
             power: '',
-            is_royal: false
+            is_royal: false,
+            alignment_id: ''
     }
     
     handleSubmit = async(e) => {
 
-        const { name, cool_factor, power, is_royal } = this.state;
+        const { name, cool_factor, power, is_royal, alignment } = this.state;
 
         e.preventDefault();
         // do edits for post request
@@ -22,7 +23,8 @@ export default class AdminPage extends Component {
             cool_factor: cool_factor,
             power: power,
             owner_id: 1,
-            is_royal: is_royal
+            is_royal: is_royal,
+            alignment: alignment
         })
         
     }
@@ -45,9 +47,13 @@ export default class AdminPage extends Component {
     handleRadioChange = (e) => {
         this.setState({ is_royal: e.target.value })
     }
+
+    handleAlignmentChange = (e) => {
+        this.setState({ alignment_id: e.target.value})
+    }
     
     render() {
-       const { name, cool_factor, power } = this.state;
+       const { name, cool_factor, power, alignment_id } = this.state;
     return (
         <div>
         <form onSubmit={this.handleSubmit}>
@@ -62,6 +68,10 @@ export default class AdminPage extends Component {
 
                         <label>COOL FACTOR
                             <input onChange={this.handleCoolFactorChange} name='cool_factor' value={cool_factor} type="number"></input>
+                        </label>
+
+                        <label>ALIGNMENT
+                            <input onChange={this.handleAlignmentChange} name='alignment_id' value={alignment_id}></input>
                         </label>
 
                         <label>IS ROYAL
